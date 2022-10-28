@@ -1,4 +1,4 @@
-module core
+module github.com/dukb/core
 
 go 1.19
 
