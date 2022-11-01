@@ -1,6 +1,9 @@
 package config
 
-import "github.com/spf13/viper"
+import (
+	"github.com/spf13/viper"
+	"log"
+)
 
 var Cfg *viper.Viper
 
@@ -10,10 +13,11 @@ type Config struct {
 }
 
 func SetUpConfig(path string) {
-	Cfg := viper.New()
-	Cfg.SetConfigFile(path)
-	Cfg.SetConfigType("yaml")
+	cfg := viper.New()
+	cfg.SetConfigFile(path)
+	cfg.SetConfigType("yaml")
 	if err := Cfg.ReadInConfig(); err != nil {
 		panic(err)
 	}
+	log.Println(cfg.GetString("mysql"))
 }
