@@ -10,11 +10,10 @@ type Config struct {
 }
 
 func SetUpConfig(path string) {
-	cfg := viper.New()
-	cfg.SetConfigFile(path)
-	cfg.SetConfigType("yaml")
-	if err := cfg.ReadInConfig(); err != nil {
+	Cfg := viper.New()
+	Cfg.SetConfigFile(path)
+	Cfg.SetConfigType("yaml")
+	if err := Cfg.ReadInConfig(); err != nil {
 		panic(err)
 	}
-
 }
